@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
 @immutable
-class Film extends Equatable {
+class Film {
   
   // Unique identifier representing a specific film
   final String id;
@@ -51,50 +50,4 @@ class Film extends Equatable {
     @required this.locations,
     @required this.url,
   });
-
-
-  Film copyWith({
-    String id,
-    String title,
-    String description,
-    String director,
-    String producer,
-    String releaseYear,
-    String rtScore,
-    List<String> people,
-    List<String> species,
-    List<String> locations,
-    String url,
-  }) => Film(
-    id: id ?? this.id,
-    title: title ?? this.title,
-    description: description ?? this.description,
-    director: director ?? this.director,
-    producer: producer ?? this.producer,
-    releaseYear: releaseYear ?? this.releaseYear,
-    rtScore: rtScore ?? this.rtScore,
-    people: people ?? this.people,
-    species: species ?? this.species,
-    locations: locations ?? this.locations,
-    url: url ?? this.url,
-  );
-
-
-  @override
-  List<Object> get props => [
-    id,
-    title,
-    description,
-    director,
-    producer,
-    releaseYear,
-    rtScore,
-    people,
-    species,
-    locations,
-    url,
-  ];
-
-  @override
-  bool get stringify => true;
 }

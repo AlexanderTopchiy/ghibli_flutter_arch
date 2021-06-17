@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'location_model.dart';
+part of 'species_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LocationModel _$_$_LocationModelFromJson(Map json) {
-  return _$_LocationModel(
+_$_SpeciesModel _$_$_SpeciesModelFromJson(Map json) {
+  return _$_SpeciesModel(
     id: json['id'] as String,
     name: json['name'] as String,
-    climate: json['climate'] as String,
-    terrain: json['terrain'] as String,
-    surfaceWater: json['surface_water'] as String,
-    residents: (json['residents'] as List)?.map((e) => e as String)?.toList(),
+    classification: json['classification'] as String,
+    eyeColor: json['eye_color'] as String,
+    hairColor: json['hair_color'] as String,
+    people: (json['people'] as List)?.map((e) => e as String)?.toList(),
     films: (json['films'] as List)?.map((e) => e as String)?.toList(),
     url: json['url'] as String,
   );
 }
 
-Map<String, dynamic> _$_$_LocationModelToJson(_$_LocationModel instance) {
+Map<String, dynamic> _$_$_SpeciesModelToJson(_$_SpeciesModel instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -30,10 +30,10 @@ Map<String, dynamic> _$_$_LocationModelToJson(_$_LocationModel instance) {
 
   writeNotNull('id', instance.id);
   writeNotNull('name', instance.name);
-  writeNotNull('climate', instance.climate);
-  writeNotNull('terrain', instance.terrain);
-  writeNotNull('surface_water', instance.surfaceWater);
-  writeNotNull('residents', instance.residents);
+  writeNotNull('classification', instance.classification);
+  writeNotNull('eye_color', instance.eyeColor);
+  writeNotNull('hair_color', instance.hairColor);
+  writeNotNull('people', instance.people);
   writeNotNull('films', instance.films);
   writeNotNull('url', instance.url);
   return val;

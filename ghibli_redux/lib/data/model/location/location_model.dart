@@ -13,24 +13,24 @@ part 'location_model.g.dart';
 abstract class LocationModel with _$LocationModel {
   @JsonSerializable()
   const factory LocationModel({
-    /* Unique identifier representing a specific location */
-    int id,
-    /* Name of location */
+    // Unique identifier representing a specific location
+    String id,
+    // Name of location
     String name,
-    /* Climate of location */
+    // Climate of location
     String climate,
-    /* Terrain type of location */
-    int terrain,
-    /* Percent of location covered in water */
+    // Terrain type of location
+    String terrain,
+    // Percent of location covered in water
+    @JsonKey(name: 'surface_water')
     String surfaceWater,
-    /* Array of residents in location */
-    int residents,
-    /* Climate of location */
-    String films,
-    /* Individual URL of the location */
-    int url,
+    // Array of residents in location
+    List<String> residents,
+    // Array of films the location appears in
+    List<String> films,
+    // Individual URL of the location
+    String url,
   }) = _LocationModel;
 
-  factory LocationModel.fromJson(Map<String, dynamic> json) =>
-      _$LocationModelFromJson(json);
+  factory LocationModel.fromJson(Map<String, dynamic> json) => _$LocationModelFromJson(json);
 }

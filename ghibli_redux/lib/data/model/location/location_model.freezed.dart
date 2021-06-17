@@ -18,14 +18,14 @@ class _$LocationModelTearOff {
 
 // ignore: unused_element
   _LocationModel call(
-      {int id,
+      {String id,
       String name,
       String climate,
-      int terrain,
-      String surfaceWater,
-      int residents,
-      String films,
-      int url}) {
+      String terrain,
+      @JsonKey(name: 'surface_water') String surfaceWater,
+      List<String> residents,
+      List<String> films,
+      String url}) {
     return _LocationModel(
       id: id,
       name: name,
@@ -50,15 +50,16 @@ const $LocationModel = _$LocationModelTearOff();
 
 /// @nodoc
 mixin _$LocationModel {
-/* Unique identifier representing a specific location */
-  int get id; /* Name of location */
-  String get name; /* Climate of location */
-  String get climate; /* Terrain type of location */
-  int get terrain; /* Percent of location covered in water */
-  String get surfaceWater; /* Array of residents in location */
-  int get residents; /* Climate of location */
-  String get films; /* Individual URL of the location */
-  int get url;
+// Unique identifier representing a specific location
+  String get id; // Name of location
+  String get name; // Climate of location
+  String get climate; // Terrain type of location
+  String get terrain; // Percent of location covered in water
+  @JsonKey(name: 'surface_water')
+  String get surfaceWater; // Array of residents in location
+  List<String> get residents; // Array of films the location appears in
+  List<String> get films; // Individual URL of the location
+  String get url;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -71,14 +72,14 @@ abstract class $LocationModelCopyWith<$Res> {
           LocationModel value, $Res Function(LocationModel) then) =
       _$LocationModelCopyWithImpl<$Res>;
   $Res call(
-      {int id,
+      {String id,
       String name,
       String climate,
-      int terrain,
-      String surfaceWater,
-      int residents,
-      String films,
-      int url});
+      String terrain,
+      @JsonKey(name: 'surface_water') String surfaceWater,
+      List<String> residents,
+      List<String> films,
+      String url});
 }
 
 /// @nodoc
@@ -102,16 +103,17 @@ class _$LocationModelCopyWithImpl<$Res>
     Object url = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as int,
+      id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       climate: climate == freezed ? _value.climate : climate as String,
-      terrain: terrain == freezed ? _value.terrain : terrain as int,
+      terrain: terrain == freezed ? _value.terrain : terrain as String,
       surfaceWater: surfaceWater == freezed
           ? _value.surfaceWater
           : surfaceWater as String,
-      residents: residents == freezed ? _value.residents : residents as int,
-      films: films == freezed ? _value.films : films as String,
-      url: url == freezed ? _value.url : url as int,
+      residents:
+          residents == freezed ? _value.residents : residents as List<String>,
+      films: films == freezed ? _value.films : films as List<String>,
+      url: url == freezed ? _value.url : url as String,
     ));
   }
 }
@@ -124,14 +126,14 @@ abstract class _$LocationModelCopyWith<$Res>
       __$LocationModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
+      {String id,
       String name,
       String climate,
-      int terrain,
-      String surfaceWater,
-      int residents,
-      String films,
-      int url});
+      String terrain,
+      @JsonKey(name: 'surface_water') String surfaceWater,
+      List<String> residents,
+      List<String> films,
+      String url});
 }
 
 /// @nodoc
@@ -157,16 +159,17 @@ class __$LocationModelCopyWithImpl<$Res>
     Object url = freezed,
   }) {
     return _then(_LocationModel(
-      id: id == freezed ? _value.id : id as int,
+      id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
       climate: climate == freezed ? _value.climate : climate as String,
-      terrain: terrain == freezed ? _value.terrain : terrain as int,
+      terrain: terrain == freezed ? _value.terrain : terrain as String,
       surfaceWater: surfaceWater == freezed
           ? _value.surfaceWater
           : surfaceWater as String,
-      residents: residents == freezed ? _value.residents : residents as int,
-      films: films == freezed ? _value.films : films as String,
-      url: url == freezed ? _value.url : url as int,
+      residents:
+          residents == freezed ? _value.residents : residents as List<String>,
+      films: films == freezed ? _value.films : films as List<String>,
+      url: url == freezed ? _value.url : url as String,
     ));
   }
 }
@@ -180,7 +183,7 @@ class _$_LocationModel implements _LocationModel {
       this.name,
       this.climate,
       this.terrain,
-      this.surfaceWater,
+      @JsonKey(name: 'surface_water') this.surfaceWater,
       this.residents,
       this.films,
       this.url});
@@ -188,22 +191,23 @@ class _$_LocationModel implements _LocationModel {
   factory _$_LocationModel.fromJson(Map<String, dynamic> json) =>
       _$_$_LocationModelFromJson(json);
 
-  @override /* Unique identifier representing a specific location */
-  final int id;
-  @override /* Name of location */
+  @override // Unique identifier representing a specific location
+  final String id;
+  @override // Name of location
   final String name;
-  @override /* Climate of location */
+  @override // Climate of location
   final String climate;
-  @override /* Terrain type of location */
-  final int terrain;
-  @override /* Percent of location covered in water */
+  @override // Terrain type of location
+  final String terrain;
+  @override // Percent of location covered in water
+  @JsonKey(name: 'surface_water')
   final String surfaceWater;
-  @override /* Array of residents in location */
-  final int residents;
-  @override /* Climate of location */
-  final String films;
-  @override /* Individual URL of the location */
-  final int url;
+  @override // Array of residents in location
+  final List<String> residents;
+  @override // Array of films the location appears in
+  final List<String> films;
+  @override // Individual URL of the location
+  final String url;
 
   @override
   String toString() {
@@ -261,34 +265,35 @@ class _$_LocationModel implements _LocationModel {
 
 abstract class _LocationModel implements LocationModel {
   const factory _LocationModel(
-      {int id,
+      {String id,
       String name,
       String climate,
-      int terrain,
-      String surfaceWater,
-      int residents,
-      String films,
-      int url}) = _$_LocationModel;
+      String terrain,
+      @JsonKey(name: 'surface_water') String surfaceWater,
+      List<String> residents,
+      List<String> films,
+      String url}) = _$_LocationModel;
 
   factory _LocationModel.fromJson(Map<String, dynamic> json) =
       _$_LocationModel.fromJson;
 
-  @override /* Unique identifier representing a specific location */
-  int get id;
-  @override /* Name of location */
+  @override // Unique identifier representing a specific location
+  String get id;
+  @override // Name of location
   String get name;
-  @override /* Climate of location */
+  @override // Climate of location
   String get climate;
-  @override /* Terrain type of location */
-  int get terrain;
-  @override /* Percent of location covered in water */
+  @override // Terrain type of location
+  String get terrain;
+  @override // Percent of location covered in water
+  @JsonKey(name: 'surface_water')
   String get surfaceWater;
-  @override /* Array of residents in location */
-  int get residents;
-  @override /* Climate of location */
-  String get films;
-  @override /* Individual URL of the location */
-  int get url;
+  @override // Array of residents in location
+  List<String> get residents;
+  @override // Array of films the location appears in
+  List<String> get films;
+  @override // Individual URL of the location
+  String get url;
   @override
   @JsonKey(ignore: true)
   _$LocationModelCopyWith<_LocationModel> get copyWith;

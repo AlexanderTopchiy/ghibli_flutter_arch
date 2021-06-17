@@ -1,5 +1,5 @@
 import 'package:ghibli_redux/data/model/film/film_model.dart';
-import 'package:ghibli_redux/domain/models/film.dart';
+import 'package:ghibli_redux/domain/model/film.dart';
 
 class ApiFilmMapper {
   // TODO: Check mapper

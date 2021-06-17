@@ -13,30 +13,42 @@ part 'film_model.g.dart';
 abstract class FilmModel with _$FilmModel {
   @JsonSerializable()
   const factory FilmModel({
-    /* Unique identifier representing a specific film */
-    int id,
-    /* Title of the film */
+    // Unique identifier representing a specific film
+    String id,
+    // Title of the film
     String title,
-    /* Description of the film */
+    // Original title of the film
+    @JsonKey(name: 'original_title')
+    String originalTitle,
+    // Orignal title in romanised form
+    @JsonKey(name: 'original_title_romanised')
+    String originalTitleRomanised,
+    // Description of the film
     String description,
-    /* Director of the film */
+    // Director of the film
     String director,
-    /* Producer of the film */
+    // Producer of the film
     String producer,
-    /* Release year of film */
+    // Release year of film
+    @JsonKey(name: 'release_date')
     String releaseDate,
-    /* Rotten Tomato score of film */
+    // Running time of the film in minutes
+    @JsonKey(name: 'running_time')
+    String runningTime,
+    // Rotten Tomato score of film
+    @JsonKey(name: 'rt_score')
     String rtScore,
-    /* People found in film */
-    String people,
-    /* Species found in film */
-    String species,
-    /* Locations found in film */
-    String locations,
-    /* URL of film */
+    // People found in film
+    List<String> people,
+    // Species found in film
+    List<String> species,
+    // Locations found in film
+    List<String> locations,
+    // Vehicles found in film
+    List<String> vehicles,
+    // URL of film
     String url,
   }) = _FilmModel;
 
-  factory FilmModel.fromJson(Map<String, dynamic> json) =>
-      _$FilmModelFromJson(json);
+  factory FilmModel.fromJson(Map<String, dynamic> json) => _$FilmModelFromJson(json);
 }
